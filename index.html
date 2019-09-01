@@ -1,0 +1,440 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitesquare</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:700&display=swap" rel="stylesheet">
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            margin: 0;
+            max-width: 1600px;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            margin: auto;
+            padding: 0 150px;
+        }
+
+        .header-wrap {
+            max-width: inherit;
+            border-bottom: 1.5px solid #E8E8EC;
+            padding: 0 150px;
+        }
+
+        .header {
+            max-width: 1300px;
+            background-color: #FFFFFF;
+            height: 80px;
+            display: flex;
+            margin: auto;
+            justify-content: space-between;
+        }
+
+        .header .logo {
+            color: #3C91F5;
+            height: inherit;
+            display: table;
+        }
+
+        .header .logo .text {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 25px;
+        }
+
+        .header .logout {
+            height: inherit;
+            color: #8D9CAE;
+            display: table;
+        }
+
+        .header .logout .text {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 18px;
+        }
+
+        .header .nav ul {
+            height: 80px;
+            list-style-type: none;
+            color: #E5E6E7;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .header .nav ul li {
+            float: right;
+            height: inherit;
+            display: table;
+            padding-left: 25px;
+        }
+
+        .header .nav ul li a {
+            color: #8D9CAE;
+            text-align: center;
+            text-decoration: none;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .header .nav ul li a:hover {
+            color: #5E656D;
+            border-bottom: 2px solid blue;
+            font-weight: bold;
+        }
+
+        .container .title {
+            font-size: 20px;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        .container .search {
+            background-color: #EFF0F4;
+            height: 130px;
+        }
+
+        #searchBackground {
+            background-color: #EFF0F4;
+            height: 130px;
+            position: absolute;
+            width: 100%;
+            margin-top: 128px;
+            z-index: -1;
+            left: 0;
+        }
+
+        .container .search-title {
+            color: #8D9CAE;
+            font-size: 11px;
+            padding-top: 35px;
+        }
+
+        .container .search .wrap {
+            display: flex;
+        }
+
+        .container .search .search-input-wrap {
+            flex: 90%;
+            position: relative;
+            color: #8D9CAE;
+        }
+
+        .container .search .search-input-wrap i{
+            position: absolute;
+            top: 17px;
+            left: 20px;
+        }
+
+        .container .search .search-input-wrap #searchInput {
+            border: 0;
+            border-radius: 7px;
+            height: 49px;
+            width: 93%;
+            font-size: 12px;
+            padding-left: 40px;
+        }
+
+        .container .search #orderButtons {
+            border: 0;
+            border-radius: 10px;
+            height: 40px;
+            flex: 10%;
+        }
+
+        .container .search #orderButtons .btn-group button {
+            background-color: #EFF0F4;
+            border: 1.5px solid #D8D9DF;
+            color: #9FABBA;
+            padding: 12px 14px;
+            cursor: pointer;
+            float: left;
+            font-size: 16px;
+        }
+
+        .container .search #orderButtons .btn-group button:first-child {
+            border-radius: 6px 0px 0px 6px;
+        }
+
+        .container .search #orderButtons .btn-group button:last-child {
+            border-radius: 0 6px 6px 0;
+        }
+
+        .container .search #orderButtons .btn-group {
+            padding-left: 15px;
+            border-radius: 10px;
+            display: flex;
+        }
+
+        .container .search #orderButtons .btn-group:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .container .search #orderButtons .btn-group button:not(:last-child) {
+            border-right: none;
+        }
+
+        .container .search #orderButtons .btn-group button:hover {
+            background-color: #D8D9DF;
+        }
+
+        .container .content {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        .container .content .speaker-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .container .content .speaker-block {
+            padding: 0 10px;
+            padding-top: 45px;
+            border-right: 0.1px solid #E8E8EC;
+            height: 310px;
+            flex: 1 0 16%;
+        }
+
+        .container .content .speaker-block:nth-child(6n) {
+            border-right: 0;
+        }
+
+        .container .speaker-block img {
+            border-radius: 45px;
+            margin: auto;
+            display: block;
+        }
+
+        .container .speaker-block .title {
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 0px;
+            text-align: center;
+            line-height: 1.7;
+            padding: 0 5px;
+        }
+
+        .container .speaker-block .subtitle {
+            text-align: center;
+            color: #8D9CAE;
+            line-height: 1.7;
+            margin-top: 8px;
+            font-size: 13px;
+            padding: 0 9px;
+        }
+
+        footer {
+            max-width: 1300px;
+            background-color: #FFFFFF;
+            height: 80px;
+            display: flex;
+            margin: auto;
+            justify-content: space-between;
+        }
+
+        footer .logo {
+            color: #3C91F5;
+            height: inherit;
+            display: table;
+        }
+
+        footer .logo .text {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 25px;
+        }
+
+        footer .brend {
+            height: inherit;
+            color: #8D9CAE;
+            display: table;
+        }
+
+        footer .brend .text {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 18px;
+        }
+
+        .content .line-block {
+            padding-top: 310px;
+            border-bottom: 0.1px solid #E8E8EC;
+            width: 100%;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="header-wrap">
+    <div class="header">
+        <div class="logo">
+            <div class="text">
+                <a href="#">E iEvent</a>
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#">Посетители</a></li>
+                <li><a href="#">Экспоненты</a></li>
+                <li><a href="#">Спикеры</a></li>
+                <li><a href="#">Программа</a></li>
+                <li><a href="#">Настройки</a></li>
+            </ul>
+        </div>
+        <div class="logout">
+            <div class="text">
+                <a href="#">
+                    <i class="glyphicon glyphicon-log-out"></i>
+                    Выйти
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="searchBackground">
+</div>
+<div class="container">
+    <p class="title">Спикеры</p>
+    <div class="search">
+        <p class="search-title">Поиск</p>
+        <div class="wrap">
+            <div class="search-input-wrap">
+                <i class="glyphicon glyphicon-search"></i>
+                <input type="search" id="searchInput" name="q"
+                       placeholder=" Поиск по ФИО">
+            </div>
+            <div id="orderButtons">
+                <div class="btn-group">
+                    <button>
+                        <i class="glyphicon glyphicon-th"></i>
+                    </button>
+                    <button>
+                        <i class="glyphicon glyphicon-align-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="speaker-wrap">
+            <div class="line-block"></div>
+            <div class="speaker-block">
+                <img src="img/img_big_4.jpg">
+                <div class="title">Еглевская Алина Павловна</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_2.jpg">
+                <div class="title">Домовский Андрей Семенович</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_3.jpg">
+                <div class="title">Дамарацкая Констанция Константиновна</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_1.jpg">
+                <div class="title">Гавшин Виктор Евгеньевич</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_5.jpg">
+                <div class="title">Евенко Александр Викторович</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+        </div>
+        <div class="speaker-wrap">
+            <div class="line-block"></div>
+            <div class="speaker-block">
+                <img src="img/img_big_4.jpg">
+                <div class="title">Еглевская Алина Павловна</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_2.jpg">
+                <div class="title">Домовский Андрей Семенович</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_3.jpg">
+                <div class="title">Дамарацкая Констанция Константиновна</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_1.jpg">
+                <div class="title">Гавшин Виктор Евгеньевич</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_5.jpg">
+                <div class="title">Евенко Александр Викторович</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+        </div>
+        <div class="speaker-wrap">
+            <div class="line-block"></div>
+            <div class="speaker-block">
+                <img src="img/img_big_4.jpg">
+                <div class="title">Еглевская Алина Павловна</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_2.jpg">
+                <div class="title">Домовский Андрей Семенович</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_3.jpg">
+                <div class="title">Дамарацкая Констанция Константиновна</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_1.jpg">
+                <div class="title">Гавшин Виктор Евгеньевич</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+            <div class="speaker-block">
+                <img src="img/img_big_5.jpg">
+                <div class="title">Евенко Александр Викторович</div>
+                <div class="subtitle">Кандидат педагогических наук, директор</div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="logo">
+        <div class="text">
+            <a href="#">E iEvent</a>
+        </div>
+    </div>
+    <div class="brend">
+        <div class="text">
+            <a href="#">© iEvent, 2019</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

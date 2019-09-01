@@ -1,0 +1,430 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitesquare</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:700&display=swap" rel="stylesheet">
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            margin: 0;
+            max-width: 1600px;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: inherit;
+            margin: auto;
+            display: flex;
+            padding: 0 150px;
+        }
+
+        .container .sidebar {
+            flex: 1.4;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .container .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 55px;
+            padding-right: 45px;
+        }
+
+        .container .sidebar ul li {
+            padding: 15px 0;
+        }
+
+        .container .sidebar ul li:hover {
+            background-color: #EFF0F4;
+        }
+
+        .header-wrap {
+            max-width: inherit;
+            border-bottom: 1.5px solid #E8E8EC;
+            padding: 0 150px;
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            height: 80px;
+            display: flex;
+            margin: auto;
+            justify-content: space-between;
+        }
+
+        .header .logo {
+            color: #3C91F5;
+            height: inherit;
+            display: table;
+        }
+
+        .header .logo .text {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 25px;
+        }
+
+        .header .logout {
+            height: inherit;
+            color: #8D9CAE;
+            display: table;
+        }
+
+        .header .logout .text {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 18px;
+        }
+
+        .header .nav ul {
+            height: 80px;
+            list-style-type: none;
+            color: #E5E6E7;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .header .nav ul li {
+            float: right;
+            height: inherit;
+            display: table;
+            padding-left: 25px;
+        }
+
+        .header .nav ul li a {
+            color: #8D9CAE;
+            text-align: center;
+            text-decoration: none;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .header .nav ul li a:hover {
+            color: #5E656D;
+            border-bottom: 2px solid blue;
+            font-weight: bold;
+        }
+
+        .back-button-wrap {
+            max-width: inherit;
+            border-bottom: 1.5px solid #E8E8EC;
+            padding: 30px 150px;
+        }
+
+        .back-button {
+            margin: auto;
+            color: #8D9CAE;
+        }
+
+        .container .title {
+            font-size: 20px;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        .container .search #orderButtons .btn-group button {
+            background-color: #EFF0F4;
+            border: 1.5px solid #D8D9DF;
+            color: #9FABBA;
+            padding: 12px 14px;
+            cursor: pointer;
+            float: left;
+            font-size: 16px;
+        }
+
+        .container .search #orderButtons .btn-group button:first-child {
+            border-radius: 6px 0px 0px 6px;
+        }
+
+        .container .search #orderButtons .btn-group button:last-child {
+            border-radius: 0 6px 6px 0;
+        }
+
+        .container .search #orderButtons .btn-group {
+            padding-left: 15px;
+            border-radius: 10px;
+            display: flex;
+        }
+
+        .container .search #orderButtons .btn-group:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .container .search #orderButtons .btn-group button:not(:last-child) {
+            border-right: none;
+        }
+
+        .container .search #orderButtons .btn-group button:hover {
+            background-color: #D8D9DF;
+        }
+
+        .container .content {
+            flex: 3;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            border-left: 1.5px solid #E8E8EC;
+        }
+
+        .container .content .speaker-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .container .content .speaker-block {
+            padding: 0 10px;
+            padding-top: 45px;
+            border-right: 0.1px solid #E8E8EC;
+            height: 310px;
+            flex: 1 0 16%;
+        }
+
+        .container .content .speaker-block:nth-child(6n) {
+            border-right: 0;
+        }
+
+        .container .speaker-block img {
+            border-radius: 45px;
+            margin: auto;
+            display: block;
+        }
+
+        .container .speaker-block .title {
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 0px;
+            text-align: center;
+            line-height: 1.7;
+            padding: 0 5px;
+        }
+
+        .container .speaker-block .subtitle {
+            text-align: center;
+            color: #8D9CAE;
+            line-height: 1.7;
+            margin-top: 8px;
+            font-size: 13px;
+            padding: 0 9px;
+        }
+
+        .container .content .content-wrap {
+            padding-left: 10%;
+            padding-bottom: 60px;
+        }
+
+        footer {
+            padding: 0 150px;
+            background-color: #FFFFFF;
+            height: 80px;
+            display: flex;
+            margin: auto;
+            justify-content: space-between;
+            border-top: 1.5px solid #E8E8EC;
+        }
+
+        footer .logo {
+            color: #3C91F5;
+            height: inherit;
+            display: table;
+        }
+
+        footer .logo .text {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 25px;
+        }
+
+        footer .brend {
+            height: inherit;
+            color: #8D9CAE;
+            display: table;
+        }
+
+        footer .brend .text {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 18px;
+        }
+
+        .content .line-block {
+            padding-top: 310px;
+            border-bottom: 0.1px solid #E8E8EC;
+            width: 100%;
+            position: absolute;
+            left: 0;
+        }
+
+        .content .content-wrap .title {
+            font-size: 20px;
+            margin-top: 65px;
+            margin-bottom: 25px;
+        }
+
+        .content .content-wrap .form-block .row {
+            margin-top: 30px;
+        }
+
+        .content .content-wrap .form-block .row select {
+            height: 60px;
+            background-color: transparent;
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #E8E8EC;
+            margin-top: 15px;
+            padding-left: 10px;
+        }
+
+        .content .content-wrap .form-block .row button {
+            background-color: #3C91F5;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            padding: 15px 35px;
+        }
+    </style>
+</head>
+<body>
+<div class="header-wrap">
+    <div class="header">
+        <div class="logo">
+            <div class="text">
+                <a href="#">E iEvent</a>
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#">Посетители</a></li>
+                <li><a href="#">Экспоненты</a></li>
+                <li><a href="#">Спикеры</a></li>
+                <li><a href="#">Программа</a></li>
+                <li><a href="#">Настройки</a></li>
+            </ul>
+        </div>
+        <div class="logout">
+            <div class="text">
+                <a href="#">
+                    <i class="glyphicon glyphicon-log-out"></i>
+                    Выйти
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="back-button-wrap">
+    <div class="back-button">
+        <a href="#">&lt; Вернуться к списку экспонентов</a>
+    </div>
+</div>
+<div class="container">
+    <div class="sidebar">
+        <ul>
+            <a href="#">
+                <li>
+                    <div>
+                    </div>
+                    Общая информация
+                </li>
+            </a>
+            <a href="#">
+                <li>Заявка
+            </a></li>
+            <a href="#">
+                <li>Реквизиты</li>
+            </a>
+            <a href="#">
+                <li>Пользователь</li>
+            </a>
+            <a href="#">
+                <li>Макеты</li>
+            </a>
+            <a href="#">
+                <li>Договора</li>
+            </a>
+            <a href="#">
+                <li>Информация для каталога</li>
+            </a>
+            <a href="#">
+                <li>Мероприятия</li>
+            </a>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="content-wrap">
+            <p class="title">Заявка</p>
+            <div class="form-block">
+                <div class="row">
+                    <label>Тип пакета</label>
+                    <br>
+                    <select>
+                        <option value="1">Расширенный</option>
+                        <option value="2">Обычный</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>Стенд</label>
+                    <br>
+                    <select>
+                        <option value="1">АБ-1</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>Площадь, м²</label>
+                    <br>
+                    <select>
+                        <option value="1">45</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <button>
+                        Сохранить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="logo">
+        <div class="text">
+            <a href="#">E iEvent</a>
+        </div>
+    </div>
+    <div class="brend">
+        <div class="text">
+            <a href="#">© iEvent, 2019</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
